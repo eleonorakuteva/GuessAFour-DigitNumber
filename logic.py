@@ -21,23 +21,41 @@ class GameLogic:
         if guess == self.secret_number:
             print("You guessed the number!")
 
-    def correct_position(self, guess):
+    def correct_digits(self, guess):
         """Check how many exact digits are present in the number you entered it."""
         set_of_guess = set(guess)
         for number in guess:
             if number in self.secret_number:
                 self.sum_guessed_numbers += 1
-                # Have to be removed
-                print(number)
-        # Have to be removed
-        print(f"Sum of guessed numbers: {self.sum_guessed_numbers}")
+        #         # Have to be removed
+        #         print(number)
+        # # Have to be removed
+        # print(f"Sum of guessed numbers: {self.sum_guessed_numbers}")
 
         return f"{self.sum_guessed_numbers}/{len(set_of_guess)}"
+
+
+    def correct_position(self, guess):
+        """Check how many of given digits are in the correct position."""
+        sum_current_position = 0
+        for index, guess_digit in enumerate(guess):
+            for secret_digit in self.secret_number[index]:
+                print(f"Index {index}, secret digit: {secret_digit}, Guess digit: {guess_digit}")
+                if guess_digit == secret_digit:
+                    sum_current_position += 1
+                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    print(f"You guessed {sum_current_position} current position/s")
+        return str(sum_current_position)
+
+
+
         # Compare guess to secret_number
         # Return how many digits are correct, and how many are in correct position
         # return correct_digits, correct_positions
 
 
 game = GameLogic()
-corect_num = game.correct_position("1234")
-print(corect_num)
+correct_num = game.correct_digits("1234")
+correct_pos = game.correct_position("1234")
+print(correct_num)
+print(correct_pos)
