@@ -142,8 +142,8 @@ class GuesserApp:
             print("its correct")
 
             self.guess_labels[self.current_row][0].config(text=f"{given_guess}")
-            self.guess_labels[self.current_row][1].config(text="2")
-            self.guess_labels[self.current_row][2].config(text="1")
+            self.guess_labels[self.current_row][1].config(text=f"{self.logic.correct_digits(given_guess)}")
+            self.guess_labels[self.current_row][2].config(text=f"{self.logic.correct_position(given_guess)}")
             self.current_row += 1
 
 
