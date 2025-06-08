@@ -39,12 +39,10 @@ class GameLogic:
         """Check how many of given digits are in the correct position."""
         sum_current_position = 0
         for index, guess_digit in enumerate(guess):
-            for secret_digit in self.secret_number[index]:
-                print(f"Index {index}, secret digit: {secret_digit}, Guess digit: {guess_digit}")
-                if guess_digit == secret_digit:
-                    sum_current_position += 1
-                    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                    print(f"You guessed {sum_current_position} current position/s")
+            if guess_digit == self.secret_number[index]:
+                sum_current_position += 1
+
+                print(f"!!!! You guessed {sum_current_position} current position/s")
         return str(sum_current_position)
 
 
