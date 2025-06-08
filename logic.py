@@ -10,7 +10,6 @@ def generate_number():
 
 class GameLogic:
     def __init__(self):
-        self.sum_guessed_numbers = 0
         self.secret_number = generate_number()
         # have to remove it later
         print(f"Secret num is: {self.secret_number}")
@@ -23,16 +22,17 @@ class GameLogic:
 
     def correct_digits(self, guess):
         """Check how many exact digits are present in the number you entered it."""
+        sum_guessed_numbers = 0
         set_of_guess = set(guess)
         for number in guess:
             if number in self.secret_number:
-                self.sum_guessed_numbers += 1
+                sum_guessed_numbers += 1
         #         # Have to be removed
         #         print(number)
         # # Have to be removed
         # print(f"Sum of guessed numbers: {self.sum_guessed_numbers}")
 
-        return f"{self.sum_guessed_numbers}/{len(set_of_guess)}"
+        return f"{sum_guessed_numbers}/{len(set_of_guess)}"
 
 
     def correct_position(self, guess):
