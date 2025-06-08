@@ -90,6 +90,7 @@ class GuesserApp:
         print(len(given_guess))
         print(type(given_guess))
 
+        # Try / Except block:
         if len(given_guess) != 4:
             messagebox.showwarning(title= 'Oops', message='The number you are trying to guess is with four digit!')
         if int(given_guess) not in range(1000,9999):
