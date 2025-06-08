@@ -139,11 +139,12 @@ class GuesserApp:
 
         if self.is_guess_correct(given_guess) and self.current_row <= 10:
 
-            print("its correct")
+            correct_digits = self.logic.correct_digits(given_guess)
+            correct_positions = self.logic.correct_position(given_guess)
 
             self.guess_labels[self.current_row][0].config(text=f"{given_guess}")
-            self.guess_labels[self.current_row][1].config(text=f"{self.logic.correct_digits(given_guess)}")
-            self.guess_labels[self.current_row][2].config(text=f"{self.logic.correct_position(given_guess)}")
+            self.guess_labels[self.current_row][1].config(text=f"{correct_digits}")
+            self.guess_labels[self.current_row][2].config(text=f"{correct_positions}")
             self.current_row += 1
 
 
@@ -167,7 +168,7 @@ class GuesserApp:
 window_tab = Tk()
 app = GuesserApp(window_tab)
 
-curr_guess = app.guess_entry.get()
+
 
 
 
